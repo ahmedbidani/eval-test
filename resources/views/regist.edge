@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AdonisJS - A fully featured web framework for Node.js</title>
+  @entryPointStyles('app')
+  @entryPointScripts('app')
+</head>
+<body>
+
+  <main >
+    <div  class="widget-post" aria-labelledby="post-header-title">
+      <div class="widget-post__header">
+        <h2 class="widget-post__title" id="post-header-title">
+           <i class="fa fa-pencil" aria-hidden="true"></i>
+          Register please
+        </h2>
+      </div>
+      <form id="widget-form" class="widget-post__form" name="form" aria-label="post widget" action="register" method="POST">
+        <div class="widget-post__content">
+          <label for="post-content" class="sr-only"></label>
+          <input type="text" name="firstname" id="first-name"  onchange="loadfirst(event)"class="widget-post__textarea scroller" placeholder="first name"></input>
+        </div>
+        <div class="widget-post__content">
+          <label for="post-content" class="sr-only"></label>
+          <input type="text" name="lastname" id="last-name"  onchange="loadlast(event)" class="widget-post__textarea scroller" placeholder="last name"></input>
+        </div>
+        <div class="widget-post__actions post--actions">
+          <button class="btn post-actions__publish">submit</button>
+        </div>
+      </form>
+    </div>
+  </main>
+</body>
+</html>

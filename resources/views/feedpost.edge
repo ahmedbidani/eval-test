@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+
+  <title>AdonisJS - A fully featured web framework for Node.js</title>
+  @entryPointStyles('app')
+  @entryPointScripts('app')
+</head>
+<body>
+  <main>
+    <div class="tablecontainer">
+      <h2 >news feed</h2><br><br>
+      <table >
+      @each(post in posts)
+          <div class="widget-post__header">
+            <h3 class="widget-post__title" id="post-header-title">
+               <i class="fa fa-pencil" aria-hidden="true"></i>
+                {{post.firstName}} {{post.lastName}} posted
+            </h3>
+          </div>
+          <form id="widget-form" class="widget-post__form" name="form" aria-label="post widget" action="" method="GET" >
+              @if(post.caption)
+              <div class="widget-post__actions post--actions">
+                <h4>   {{post.caption}} </h4>
+              </div>
+              @else
+              <div class="widget-post__actions post--actions">
+                <h4>   No caption </h4>
+              </div>
+              @endif
+              @if(post.mediaPath)
+              <div class="widget-post__actions post--actions">
+                <div class="fill">
+                 <img src="{{post.mediaPath}}" alt="{{post.mediaPath}}"/>
+                </div>
+              </div>
+              @endif
+          </form><br><br>
+       @endeach
+      </table>
+    </div>
+  </main>
+</body>
+</html>

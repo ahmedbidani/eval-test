@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>AdonisJS - A fully featured web framework for Node.js</title>
+  @entryPointStyles('app')
+  @entryPointScripts('app')
+</head>
+<body>
+
+  <main>
+    
+    <div class="widget-post" aria-labelledby="post-header-title">
+        <div id="test"></div>
+        <div class="widget-post__header">
+          <h3 class="widget-post__title" id="post-header-title">
+             <i class="fa fa-pencil" aria-hidden="true"></i>
+              {{firstname}} {{lastname}} post
+          </h3>
+        </div>
+        <form id="widget-form" class="widget-post__form" name="form" aria-label="post widget" action="create" method="POST" enctype="multipart/form-data">
+          <div class="widget-post__content">
+            <label for="post-content" class="sr-only">Share</label>
+            <div name="lastname" id="last-content"  ></div>
+            <input type="hidden" name="firstname" id="first-content" value="{{firstname}}" ></input>
+            <input type="hidden" name="lastname" id="last-content" value="{{lastname}}" ></input>
+            <input type="text" name="caption" id="post-content" class="widget-post__textarea scroller" placeholder="What's in your mind?"></input>
+        </div>
+          <div class="widget-post__actions post--actions">
+          <div class="fill">
+            <img id="output"  />
+          </div>
+            <p><input type="file"  accept="video/*,image/*" name="files" id="file"  onchange="loadFile(event)" style="display: none;"></p>
+            <button type="button" class="btn post-actions__upload attachments--btn">
+              <label for="file" class="post-actions__label">
+                 <i class="fa fa-upload" aria-hidden="true"></i> 
+                upload image
+              </label>
+            </button>          
+            <script>
+              var loadFile = function(event) {
+                var url=URL.createObjectURL(event.target.files[0]);
+                var image = document.getElementById('output');
+                image.src = URL.createObjectURL(event.target.files[0]); 
+              };
+            </script>
+            <div class="post-actions__widget">
+              <button class="btn post-actions__publish" >publish</button>
+            </div>
+          </div>
+        </form>
+      </div>
+  </main>
+</body>
+</html>
