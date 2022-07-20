@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-
+  <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
   <title>AdonisJS - A fully featured web framework for Node.js</title>
   @entryPointStyles('app')
   @entryPointScripts('app')
@@ -13,9 +13,11 @@
   <main>
     <div class="tablecontainer">
       <h2 >news feed</h2><br><br>
+
       <table >
       @each(post in posts)
           <div class="widget-post__header">
+          <h1>{{post.id}}</h1>
             <h3 class="widget-post__title" id="post-header-title">
                <i class="fa fa-pencil" aria-hidden="true"></i>
                 {{post.firstName}} {{post.lastName}} posted
@@ -39,6 +41,23 @@
               </div>
               @endif
           </form><br><br>
+          <div class="comment-post">
+
+            <div class="likes-icones" style="margin-top:-30px">
+              <i class="fa fa-thumbs-o-up"  style="font-size:24px></i> 
+              <form>
+             
+            </form>
+            </div>
+  <form action="comment" method="POST" >
+    
+    <input type="hidden" name="id" id="id" value="{{post.id}}" ></input>
+     <input type="text" name="comment" id="comment"  onchange="loadComment(event) "class="widget-post__textarea scroller" placeholder="comment"></input>
+  <button type="submit"  class="btn post-actions__publish">send</button>
+ 
+  </form>
+  
+</div>
        @endeach
       </table>
     </div>

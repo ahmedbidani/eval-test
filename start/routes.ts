@@ -27,5 +27,7 @@ Route.get('/', async ({ view }) => {
 Route.get('/addpost', async ({ view }) => {
   return view.render('addpost')
 })
-Route.post("create","PostsController.create");
-Route.post("register","PostsController.register");
+Route.post('create', 'PostsController.create')
+Route.post('register', 'PostsController.register')
+Route.post('comment', 'PostsController.addComment')
+Route.post('like', 'PostsController.addLike')

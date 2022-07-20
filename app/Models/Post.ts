@@ -1,5 +1,7 @@
 import { DateTime } from 'luxon'
-import { BaseModel, column } from '@ioc:Adonis/Lucid/Orm'
+import { BaseModel, column, hasMany, HasMany } from '@ioc:Adonis/Lucid/Orm'
+import Comment from './Comment'
+import Like from './Like'
 
 export default class Post extends BaseModel {
   @column({ isPrimary: true })
@@ -12,15 +14,20 @@ export default class Post extends BaseModel {
   public updatedAt: DateTime
 
   @column()
-  public firstName:string
+  public firstName: string
 
   @column()
-  public lastName:string
+  public lastName: string
 
   @column()
-  public caption:string
+  public caption: string
 
   @column()
-  public mediaPath: string 
+  public mediaPath: string
 
+  @hasMany(() => Comment)
+  public commentId: HasMany<typeof Comment>
+
+  @hasMany(() => Like)
+  public likeId: HasMany<typeof Like>
 }

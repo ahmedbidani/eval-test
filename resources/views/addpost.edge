@@ -11,7 +11,7 @@
 <body>
 
   <main>
-    
+
     <div class="widget-post" aria-labelledby="post-header-title">
         <div id="test"></div>
         <div class="widget-post__header">
@@ -35,15 +35,15 @@
             <p><input type="file"  accept="video/*,image/*" name="files" id="file"  onchange="loadFile(event)" style="display: none;"></p>
             <button type="button" class="btn post-actions__upload attachments--btn">
               <label for="file" class="post-actions__label">
-                 <i class="fa fa-upload" aria-hidden="true"></i> 
+                 <i class="fa fa-upload" aria-hidden="true"></i>
                 upload image
               </label>
-            </button>          
+            </button>
             <script>
               var loadFile = function(event) {
                 var url=URL.createObjectURL(event.target.files[0]);
                 var image = document.getElementById('output');
-                image.src = URL.createObjectURL(event.target.files[0]); 
+                image.src = URL.createObjectURL(event.target.files[0]);
               };
             </script>
             <div class="post-actions__widget">
